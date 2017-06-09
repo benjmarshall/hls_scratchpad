@@ -1,0 +1,160 @@
+================================================================
+  Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC
+  Version 2017.1
+  Build 1846317 on Fri Apr 14 19:19:38 MDT 2017
+  Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
+================================================================
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado_HLS/2017.1/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'ben' on host 'localhost' (Linux_x86_64 version 3.10.0-327.36.2.el7.x86_64) on Fri Jun 09 10:24:58 BST 2017
+INFO: [HLS 200-10] On os "CentOS Linux release 7.2.1511 (Core) "
+INFO: [HLS 200-10] In directory '/mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation'
+INFO: [HLS 200-10] Creating and opening project '/mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation'.
+INFO: [HLS 200-10] Adding design file 'src/dut.h' to the project
+INFO: [HLS 200-10] Adding design file 'src/dut.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'tb/testbench.cpp' to the project
+INFO: [HLS 200-10] Creating and opening solution '/mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-10] Setting target device to '{xc7z020clg484-1}'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../tb/testbench.cpp in debug mode
+   Compiling ../../../../src/dut.cpp in debug mode
+   Generating csim.exe
+Expected result: 100, Got Result: 100
+Expected result: 103, Got Result: 103
+Expected result: 106, Got Result: 106
+Expected result: 109, Got Result: 109
+Expected result: 112, Got Result: 112
+Expected result: 115, Got Result: 115
+Expected result: 118, Got Result: 118
+Expected result: 121, Got Result: 121
+Expected result: 124, Got Result: 124
+Expected result: 127, Got Result: 127
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-10] Analyzing design file 'src/dut.cpp' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 438.148 ; gain = 12.590 ; free physical = 5171 ; free virtual = 10689
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 438.148 ; gain = 12.590 ; free physical = 5171 ; free virtual = 10689
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 438.148 ; gain = 12.590 ; free physical = 5170 ; free virtual = 10688
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 438.148 ; gain = 12.590 ; free physical = 5170 ; free virtual = 10688
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 566.145 ; gain = 140.586 ; free physical = 5152 ; free virtual = 10670
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 566.145 ; gain = 140.586 ; free physical = 5160 ; free virtual = 10678
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'simple_adder' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'simple_adder' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.04 seconds; current allocated memory: 56.967 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 57.047 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'simple_adder' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'simple_adder/a' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'simple_adder/b' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'simple_adder' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'simple_adder'.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 57.156 MB.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 566.145 ; gain = 140.586 ; free physical = 5156 ; free virtual = 10675
+INFO: [SYSC 207-301] Generating SystemC RTL for simple_adder.
+INFO: [VHDL 208-304] Generating VHDL RTL for simple_adder.
+INFO: [VLOG 209-307] Generating Verilog RTL for simple_adder.
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/opt/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc/bin/g++"
+   Compiling apatb_simple_adder.cpp
+   Compiling testbench.cpp_pre.cpp.tb.cpp
+   Compiling dut.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Expected result: 100, Got Result: 100
+Expected result: 103, Got Result: 103
+Expected result: 106, Got Result: 106
+Expected result: 109, Got Result: 109
+Expected result: 112, Got Result: 112
+Expected result: 115, Got Result: 115
+Expected result: 118, Got Result: 118
+Expected result: 121, Got Result: 121
+Expected result: 124, Got Result: 124
+Expected result: 127, Got Result: 127
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-322] Starting VHDL simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/opt/Xilinx/Vivado/2017.1/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2017.1
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2017.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_simple_adder_top -prj simple_adder.prj -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 --initfile /opt/Xilinx/Vivado/2017.1/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s simple_adder 
+Determining compilation order of HDL files.
+INFO: [VRFC 10-163] Analyzing VHDL file "/mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation/solution1/sim/vhdl/AESL_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation/solution1/sim/vhdl/simple_adder.autotb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity apatb_simple_adder_top
+INFO: [VRFC 10-163] Analyzing VHDL file "/mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation/solution1/sim/vhdl/simple_adder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity simple_adder
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling architecture behav of entity xil_defaultlib.simple_adder [simple_adder_default]
+Compiling architecture behav of entity xil_defaultlib.apatb_simple_adder_top
+Built simulation snapshot simple_adder
+
+****** Webtalk v2017.1 (64-bit)
+  **** SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+  **** IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source /mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation/solution1/sim/vhdl/xsim.dir/simple_adder/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation/solution1/sim/vhdl/xsim.dir/simple_adder/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Fri Jun  9 10:25:11 2017. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2017.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Fri Jun  9 10:25:11 2017...
+
+****** xsim v2017.1 (64-bit)
+  **** SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+  **** IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/simple_adder/xsim_script.tcl
+# xsim {simple_adder} -autoloadwcfg -tclbatch {simple_adder.tcl}
+Vivado Simulator 2017.1
+Time resolution is 1 ps
+source simple_adder.tcl
+## run all
+Note: simulation done!
+Time: 275 ns  Iteration: 1  Process: /apatb_simple_adder_top/generate_sim_done_proc  File: /mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation/solution1/sim/vhdl/simple_adder.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 275 ns  Iteration: 1  Process: /apatb_simple_adder_top/generate_sim_done_proc  File: /mnt/centos_share/Vivado_Projects/hls_scratchpad/python_automation/proj_python_automation/solution1/sim/vhdl/simple_adder.autotb.vhd
+$finish called at time : 275 ns
+## quit
+INFO: [Common 17-206] Exiting xsim at Fri Jun  9 10:25:23 2017...
+INFO: [COSIM 212-316] Starting C post checking ...
+Expected result: 100, Got Result: 100
+Expected result: 103, Got Result: 103
+Expected result: 106, Got Result: 106
+Expected result: 109, Got Result: 109
+Expected result: 112, Got Result: 112
+Expected result: 115, Got Result: 115
+Expected result: 118, Got Result: 118
+Expected result: 121, Got Result: 121
+Expected result: 124, Got Result: 124
+Expected result: 127, Got Result: 127
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-210] Design is translated to an combinational logic. II and Latency will be marked as all 0.
+INFO: [HLS 200-112] Total elapsed time: 26.16 seconds; peak allocated memory: 57.156 MB.
