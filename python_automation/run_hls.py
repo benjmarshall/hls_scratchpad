@@ -37,18 +37,18 @@ from Manifest import *
 # Set some default values if not specified in manifest file
 try:
     src_dir_name
-except:
+except NameError:
     src_dir_name = 'src'
 
 try:
     tb_dir_name
-except:
+except NameError:
     tb_dir_name = 'tb'
 
 # Set the project name
 try:
     project_name
-except:
+except NameError:
     project_name = "proj_" + os.path.relpath(".","..")
 
 # Check for clean argument
