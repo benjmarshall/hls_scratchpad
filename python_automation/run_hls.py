@@ -6,13 +6,77 @@ Created on Fri Jun  9 08:03:07 2017
 @author: Ben Marshall
 """
 
-# Imports
+### Imports ###
 import os
 import sys
 import shutil
 import argparse
 from glob import glob
 import contextlib
+
+### Class definitions ###
+class Error(Exception):
+    """Base class for exceptions in this module."""
+    pass
+
+class ConfigError(Error):
+    """Exception raised for options not defined in config.
+
+    Attributes:
+        message -- explanation of the error
+    """
+
+    def __init__(self, message):
+        self.message = message
+
+### Support Functions ###
+def try_delete(item):
+    try:
+        shutil.rmtree(item)
+    except OSError:
+        try:
+            os.remove(item)
+        except OSError:
+            return 1
+        else:
+            return 0
+    else:
+        return 0
+
+def get_vars_from_file(filename):
+    import imp
+    f = open(filename)
+    config = imp.load_source('config', '', f)
+    f.close()
+    return config
+
+def parse_config_vars(config_loaded, config, errors):
+    config_loaded_dict = dict((name, getattr(config_loaded, name)) for name in dir(config_loaded) if not name.startswith('__'))
+    config_loaded_set = set(config_loaded_dict)
+    config_set = set(config)
+    options_defined = config_loaded_set.intersection(config_set)
+    for name in config:
+        if str(name) in options_defined:
+            config[name] = config_loaded_dict[name]
+        try:
+            if not config[name]:
+                raise ConfigError("Error: " + name + " is not defined in config file. No default exists, please define a value in the config file.")
+        except ConfigError as err:
+            errors.append(err)
+            continue
+
+# Set up default config dictionary
+config = {
+    "project_name" : "proj_" + os.path.relpath(".",".."),
+    "top_level_function_name" : "",
+    "src_dir_name" : "src",
+    "tb_dir_name" : "tb",
+    "src_files" : "",
+    "tb_files" : "",
+    "part_name" : "",
+    "clock_period" : "",
+    "language" : "vhdl",
+}
 
 # Parse command line arguments
 parser = argparse.ArgumentParser(description="Helper tool for using Vivado HLS through the command line. If no arguments are specified then a default run is executed which includes C simulation, C synthesis, Cosimulation and export for both Vivado IP Catalog and System Generator. If any of the run options are specified then only those specified are performed.")
@@ -31,65 +95,34 @@ export_dsp_group.add_argument("-export_dsp", help="perform export for System Gen
 export_dsp_group.add_argument("-evaluate_dsp", help="perform export for System Generator with build to place and route", action="store_true")
 args = parser.parse_args()
 
-# Load project specifics from local manifest file
-from Manifest import *
-
-# Set some default values if not specified in manifest file
-try:
-    src_dir_name
-except NameError:
-    src_dir_name = 'src'
-
-try:
-    tb_dir_name
-except NameError:
-    tb_dir_name = 'tb'
-
-# Set the project name
-try:
-    project_name
-except NameError:
-    project_name = "proj_" + os.path.relpath(".","..")
-
 # Check for clean argument
-def proj_delete():
-    try:
-        shutil.rmtree(project_name)
-    except OSError:
-        return 1
-    else:
-        return 0
-def tcl_delete():
-        try:
-            os.remove("run_hls.tcl")
-        except OSError:
-            return 1
-        else:
-            return 0
-def log_delete():
-        try:
-            os.remove("vivado_hls.log")
-        except OSError:
-            return 1
-        else:
-            return 0
 if args.clean:
     if len(sys.argv) > 2:
         print("Warning: The 'Clean' option is exclusive. All other arguments will be ignored.")
-    if proj_delete() + tcl_delete() + log_delete() == 3:
+    if try_delete(config["project_name"]) + try_delete("run_hls.tcl") + try_delete("vivado_hls.log") == 3:
         print("Warning: Nothing to remove!")
     else:
         print("Cleaned up generated files.")
     sys.exit()
 
+# Load project specifics from local config file and add to config dict
+config_loaded = get_vars_from_file('hls_config.py')
+errors = []
+parse_config_vars(config_loaded, config, errors)
+if len(errors) != 0:
+    for err in errors:
+        print(err)
+    print("Config Errors, exiting...")
+    sys.exit()
+
 # Write out TCL file
 file = open("run_hls.tcl","w")
-file.write("open_project " + project_name + "\n")
-file.write("set_top " + top_level_function_name + "\n")
-for src_file in src_files:
-    file.write("add_files " + src_dir_name + "/" + src_file + "\n")
-for tb_file in tb_files:
-    file.write("add_files -tb " + tb_dir_name + "/" + tb_file + "\n")
+file.write("open_project " + config["project_name"] + "\n")
+file.write("set_top " + config["top_level_function_name"] + "\n")
+for src_file in config["src_files"]:
+    file.write("add_files " + config["src_dir_name"] + "/" + src_file + "\n")
+for tb_file in config["tb_files"]:
+    file.write("add_files -tb " + config["tb_dir_name"] + "/" + tb_file + "\n")
 if args.keep:
     print("******\n\n\n\n\n\n\n\n\n\n\n*******")
     paths = glob(project_name + "/solution*/")
@@ -101,13 +134,13 @@ if args.keep:
         file.write("open_solution -reset \"solution" + str(solution_num) + "\"" + "\n")
 else:
     file.write("open_solution -reset \"solution1\"" + "\n")
-file.write("set_part \{" + part_name + "\}" + "\n")
-file.write("create_clock -period " + clock_period + " -name default" + "\n")
+file.write("set_part \{" + config["part_name"] + "\}" + "\n")
+file.write("create_clock -period " + config["clock_period"] + " -name default" + "\n")
 
 if not(args.csim or args.syn or args.cosim or args.cosim_debug or args.export_ip or args.export_dsp or args.evaluate_ip or args.evaluate_dsp):
     file.write("csim_design -clean" + "\n")
     file.write("csynth_design" + "\n")
-    file.write("cosim_design -O -rtl vhdl" + "\n")
+    file.write("cosim_design -O -rtl " + config["language"] + "\n")
     file.write("export_design -format ip_catalog" + "\n")
     file.write("export_design -format sysgen" + "\n")
     file.write("exit" + "\n")
@@ -117,9 +150,9 @@ else:
     if args.syn:
         file.write("csynth_design" + "\n")
     if args.cosim:
-        file.write("cosim_design -O -rtl vhdl" + "\n")
+        file.write("cosim_design -O -rtl " + config["language"] + "\n")
     if args.cosim_debug:
-        file.write("cosim_design -rtl vhdl -trace_level all" + "\n")
+        file.write("cosim_design -rtl " + config["language"] + "-trace_level all" + "\n")
     if args.export_dsp:
         file.write("export_design -format ip_catalog")
     if args.export_ip:
@@ -127,7 +160,7 @@ else:
     if args.evaluate_dsp:
         file.write("export_design -format ip_catalog -evaluate vhdl")
     if args.evaluate_ip:
-        file.write("export_design -format sysgen -evaluat vhdl")
+        file.write("export_design -format sysgen -evaluate " + config["language"])
 file.write("exit")
 file.close()
 
