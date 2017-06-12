@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Jun  9 08:03:07 2017
+""" A Vivado HLS Command Line Helper tool
 
-@author: Ben Marshall
+Copyright (c) 2017 Ben Marshall
 """
 
 ### Imports ###
@@ -91,7 +90,7 @@ def main():
 
     # Parse command line arguments
     parser = argparse.ArgumentParser(description="Helper tool for using Vivado HLS through the command line. If no arguments are specified then a default run is executed which includes C simulation, C synthesis, Cosimulation and export for both Vivado IP Catalog and System Generator. If any of the run options are specified then only those specified are performed.")
-    parser.add_argument("-clean", help="Remove all Vivado HLS generated files", action="store_true")
+    parser.add_argument("-clean", help="remove all Vivado HLS generated files", action="store_true")
     parser.add_argument("-keep", help="keep all previous solution and generate a new one", action="store_true")
     parser.add_argument("-csim", help="perform C simulation stage", action="store_true")
     parser.add_argument("-syn", help="perform C synthesis stage", action="store_true")
