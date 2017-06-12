@@ -65,6 +65,17 @@ def parse_config_vars(config_loaded, config, errors):
             errors.append(err)
             continue
 
+def just_loop_on(input):
+  if isinstance(input, str):
+    yield input
+  else:
+    try:
+      for item in input:
+        yield item
+    except TypeError:
+      yield input
+
+
 # Set up default config dictionary
 config = {
     "project_name" : "proj_" + os.path.relpath(".",".."),
@@ -124,9 +135,7 @@ for src_file in config["src_files"]:
 for tb_file in config["tb_files"]:
     file.write("add_files -tb " + config["tb_dir_name"] + "/" + tb_file + "\n")
 if args.keep:
-    print("******\n\n\n\n\n\n\n\n\n\n\n*******")
     paths = glob(project_name + "/solution*/")
-    print(paths)
     solution_num = len(paths) + 1
     if solution_num == 1:
         file.write("open_solution -reset \"solution1\"" + "\n")
@@ -150,17 +159,21 @@ else:
     if args.syn:
         file.write("csynth_design" + "\n")
     if args.cosim:
-        file.write("cosim_design -O -rtl " + config["language"] + "\n")
+        for language in just_loop_on(config["language"]):
+            file.write("cosim_design -O -rtl " + language + "\n")
     if args.cosim_debug:
-        file.write("cosim_design -rtl " + config["language"] + "-trace_level all" + "\n")
+        for language in just_loop_on(config["language"]):
+            file.write("cosim_design -rtl " + language + "-trace_level all" + "\n")
     if args.export_dsp:
         file.write("export_design -format ip_catalog")
     if args.export_ip:
         file.write("export_design -format sysgen")
     if args.evaluate_dsp:
-        file.write("export_design -format ip_catalog -evaluate vhdl")
+        for language in just_loop_on(config["language"]):
+            file.write("export_design -format ip_catalog -evaluate " + language)
     if args.evaluate_ip:
-        file.write("export_design -format sysgen -evaluate " + config["language"])
+        for language in just_loop_on(config["language"]):
+            file.write("export_design -format sysgen -evaluate " + language)
 file.write("exit")
 file.close()
 
