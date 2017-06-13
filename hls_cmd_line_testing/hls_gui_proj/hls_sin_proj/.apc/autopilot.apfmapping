@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="dut.cpp" path="/mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/source_files/src/dut.cpp"/>
+    <originFiles name="dut.h" path="/mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/source_files/src/dut.h"/>
+  </source>
+  <testbench>
+    <originFiles name="testbench.cpp" path="/mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/source_files/tb/testbench.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
