@@ -1,0 +1,318 @@
+
+
+================================================================
+== Vivado HLS Report for 'fact'
+================================================================
+* Date:           Wed Jun 14 15:29:00 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        hls_sin_proj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.79|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    2|  193|    2|  193|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+--------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  |  Trip  |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  |  Count | Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+--------+----------+
+        |- fact_loop  |    0|  191|        12|          6|          1| 0 ~ 31 |    yes   |
+        +-------------+-----+-----+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 6, depth = 12
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 14
+* Pipeline: 1
+  Pipeline-0: II = 6, D = 12, States = { 2 3 4 5 6 7 8 9 10 11 12 13 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	14  / (exitcond)
+	3  / (!exitcond)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	2  / true
+14 --> 
+* FSM state operations: 
+
+ <State 1>: 2.66ns
+ST_1: x_read (2)  [1/1] 0.00ns
+:0  %x_read = call i5 @_ssdm_op_Read.ap_auto.i5(i5 %x)
+
+ST_1: tmp_cast (3)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:5
+:1  %tmp_cast = zext i5 %x_read to i6
+
+ST_1: tmp_3 (4)  [1/1] 2.66ns  loc: ../source_files/src/dut.cpp:5
+:2  %tmp_3 = add i6 %tmp_cast, 1
+
+ST_1: StgValue_18 (5)  [1/1] 1.77ns  loc: ../source_files/src/dut.cpp:5
+:3  br label %1
+
+
+ <State 2>: 6.28ns
+ST_2: result_int (7)  [1/1] 0.00ns
+:0  %result_int = phi double [ 1.000000e+00, %0 ], [ %result_int_2, %2 ]
+
+ST_2: i (8)  [1/1] 0.00ns
+:1  %i = phi i6 [ 1, %0 ], [ %i_2, %2 ]
+
+ST_2: exitcond (9)  [1/1] 3.88ns  loc: ../source_files/src/dut.cpp:5
+:2  %exitcond = icmp eq i6 %i, %tmp_3
+
+ST_2: StgValue_22 (10)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:5
+:3  br i1 %exitcond, label %3, label %2
+
+ST_2: i_cast1 (12)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:5
+:0  %i_cast1 = zext i6 %i to i32
+
+ST_2: tmp_s (17)  [6/6] 6.28ns  loc: ../source_files/src/dut.cpp:7
+:5  %tmp_s = sitofp i32 %i_cast1 to double
+
+ST_2: i_2 (20)  [1/1] 2.71ns  loc: ../source_files/src/dut.cpp:5
+:8  %i_2 = add i6 %i, 1
+
+
+ <State 3>: 6.28ns
+ST_3: tmp_s (17)  [5/6] 6.28ns  loc: ../source_files/src/dut.cpp:7
+:5  %tmp_s = sitofp i32 %i_cast1 to double
+
+
+ <State 4>: 6.28ns
+ST_4: tmp_s (17)  [4/6] 6.28ns  loc: ../source_files/src/dut.cpp:7
+:5  %tmp_s = sitofp i32 %i_cast1 to double
+
+
+ <State 5>: 6.28ns
+ST_5: tmp_s (17)  [3/6] 6.28ns  loc: ../source_files/src/dut.cpp:7
+:5  %tmp_s = sitofp i32 %i_cast1 to double
+
+
+ <State 6>: 6.28ns
+ST_6: tmp_s (17)  [2/6] 6.28ns  loc: ../source_files/src/dut.cpp:7
+:5  %tmp_s = sitofp i32 %i_cast1 to double
+
+
+ <State 7>: 6.28ns
+ST_7: tmp_s (17)  [1/6] 6.28ns  loc: ../source_files/src/dut.cpp:7
+:5  %tmp_s = sitofp i32 %i_cast1 to double
+
+
+ <State 8>: 7.79ns
+ST_8: result_int_2 (18)  [6/6] 7.79ns  loc: ../source_files/src/dut.cpp:7
+:6  %result_int_2 = fmul double %result_int, %tmp_s
+
+
+ <State 9>: 7.79ns
+ST_9: result_int_2 (18)  [5/6] 7.79ns  loc: ../source_files/src/dut.cpp:7
+:6  %result_int_2 = fmul double %result_int, %tmp_s
+
+
+ <State 10>: 7.79ns
+ST_10: result_int_2 (18)  [4/6] 7.79ns  loc: ../source_files/src/dut.cpp:7
+:6  %result_int_2 = fmul double %result_int, %tmp_s
+
+
+ <State 11>: 7.79ns
+ST_11: result_int_2 (18)  [3/6] 7.79ns  loc: ../source_files/src/dut.cpp:7
+:6  %result_int_2 = fmul double %result_int, %tmp_s
+
+
+ <State 12>: 7.79ns
+ST_12: result_int_2 (18)  [2/6] 7.79ns  loc: ../source_files/src/dut.cpp:7
+:6  %result_int_2 = fmul double %result_int, %tmp_s
+
+
+ <State 13>: 7.79ns
+ST_13: empty (13)  [1/1] 0.00ns
+:1  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 31, i64 0)
+
+ST_13: StgValue_37 (14)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:5
+:2  call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str1) nounwind
+
+ST_13: tmp_2 (15)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:5
+:3  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([10 x i8]* @p_str1) nounwind
+
+ST_13: StgValue_39 (16)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:6
+:4  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
+
+ST_13: result_int_2 (18)  [1/6] 7.79ns  loc: ../source_files/src/dut.cpp:7
+:6  %result_int_2 = fmul double %result_int, %tmp_s
+
+ST_13: empty_3 (19)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:8
+:7  %empty_3 = call i32 (...)* @_ssdm_op_SpecRegionEnd([10 x i8]* @p_str1, i32 %tmp_2) nounwind
+
+ST_13: StgValue_42 (21)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:5
+:9  br label %1
+
+
+ <State 14>: 0.00ns
+ST_14: StgValue_43 (23)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:9
+:0  ret double %result_int
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.66ns
+The critical path consists of the following:
+	wire read on port 'x' [2]  (0 ns)
+	'add' operation ('tmp_3', ../source_files/src/dut.cpp:5) [4]  (2.66 ns)
+
+ <State 2>: 6.28ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ../source_files/src/dut.cpp:5) [8]  (0 ns)
+	'sitodp' operation ('tmp_s', ../source_files/src/dut.cpp:7) [17]  (6.28 ns)
+
+ <State 3>: 6.28ns
+The critical path consists of the following:
+	'sitodp' operation ('tmp_s', ../source_files/src/dut.cpp:7) [17]  (6.28 ns)
+
+ <State 4>: 6.28ns
+The critical path consists of the following:
+	'sitodp' operation ('tmp_s', ../source_files/src/dut.cpp:7) [17]  (6.28 ns)
+
+ <State 5>: 6.28ns
+The critical path consists of the following:
+	'sitodp' operation ('tmp_s', ../source_files/src/dut.cpp:7) [17]  (6.28 ns)
+
+ <State 6>: 6.28ns
+The critical path consists of the following:
+	'sitodp' operation ('tmp_s', ../source_files/src/dut.cpp:7) [17]  (6.28 ns)
+
+ <State 7>: 6.28ns
+The critical path consists of the following:
+	'sitodp' operation ('tmp_s', ../source_files/src/dut.cpp:7) [17]  (6.28 ns)
+
+ <State 8>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('result_int', ../source_files/src/dut.cpp:7) [18]  (7.79 ns)
+
+ <State 9>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('result_int', ../source_files/src/dut.cpp:7) [18]  (7.79 ns)
+
+ <State 10>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('result_int', ../source_files/src/dut.cpp:7) [18]  (7.79 ns)
+
+ <State 11>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('result_int', ../source_files/src/dut.cpp:7) [18]  (7.79 ns)
+
+ <State 12>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('result_int', ../source_files/src/dut.cpp:7) [18]  (7.79 ns)
+
+ <State 13>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('result_int', ../source_files/src/dut.cpp:7) [18]  (7.79 ns)
+
+ <State 14>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

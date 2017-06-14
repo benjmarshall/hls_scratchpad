@@ -19,7 +19,7 @@ int main(void) {
 		// Generate expected_result
 		expected_result = sin(x);
 		// Check result and output some visual check
-		if (fabs(result - expected_result) > expected_result*0.01) {
+		if (fabs(result - expected_result) > expected_result*0.001) {
 			error_count++;
 		}
 		printf("Sin(%d) - Expected result: %f, Got Result: %f\n", int(round(x*rad2deg)), expected_result, result);

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed Jun 14 15:34:13 2017
+# Process ID: 23084
+# Current directory: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/hls_gui_proj/hls_sin_proj/solution1/sim/vhdl
+# Command line: xsim -mode tcl -source {xsim.dir/sin_taylor_series/xsim_script.tcl}
+# Log file: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/hls_gui_proj/hls_sin_proj/solution1/sim/vhdl/xsim.log
+# Journal file: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/hls_gui_proj/hls_sin_proj/solution1/sim/vhdl/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/sin_taylor_series/xsim_script.tcl
+source sin_taylor_series.tcl

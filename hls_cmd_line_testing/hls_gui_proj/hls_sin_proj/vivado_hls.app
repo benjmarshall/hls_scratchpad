@@ -1,14 +1,14 @@
-<project xmlns="com.autoesl.autopilot.project" top="sin_taylor_series" name="hls_sin_proj">
-    <files>
-        <file name="../source_files/src/dut.cpp" sc="0" tb="false" cflags=""/>
-        <file name="../source_files/src/dut.h" sc="0" tb="false" cflags=""/>
-        <file name="../../../source_files/tb/testbench.cpp" sc="0" tb="1" cflags=""/>
-    </files>
+<project xmlns="com.autoesl.autopilot.project" name="hls_sin_proj" top="sin_taylor_series">
     <includePaths/>
     <libraryPaths/>
     <Simulation>
         <SimFlow name="csim" clean="true" csimMode="0" lastCsimMode="0" compiler="true"/>
     </Simulation>
+    <files xmlns="">
+        <file name="../../../source_files/tb/testbench.cpp" sc="0" tb="1" cflags=" "/>
+        <file name="../source_files/src/dut.h" sc="0" tb="false" cflags=""/>
+        <file name="../source_files/src/dut.cpp" sc="0" tb="false" cflags=""/>
+    </files>
     <solutions xmlns="">
         <solution name="solution1" status="active"/>
     </solutions>

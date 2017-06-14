@@ -1,0 +1,23 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="fact" label="">
+<pragma name="INLINE">
+<option name="off" positionalBoolean="1" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="fact" label="">
+<pragma name="PIPELINE"/>
+</directive>
+<directive functionLabel="" functionName="power" label="">
+<pragma name="INLINE">
+<option name="OFF" positionalBoolean="1" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="power" label="">
+<pragma name="PIPELINE"/>
+</directive>
+<directive functionLabel="" functionName="sin_taylor_series" label="">
+<pragma name="DATAFLOW"/>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

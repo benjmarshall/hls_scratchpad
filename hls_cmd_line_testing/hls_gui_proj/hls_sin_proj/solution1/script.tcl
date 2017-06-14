@@ -9,10 +9,10 @@ add_files ../source_files/src/dut.cpp
 add_files ../source_files/src/dut.h
 add_files -tb ../source_files/tb/testbench.cpp
 open_solution "solution1"
-set_part {xc7z020clg484-1} -tool vivado
+set_part {xc7z020clg484-1}
 create_clock -period 10 -name default
 #source "./hls_sin_proj/solution1/directives.tcl"
 csim_design -clean -compiler gcc
 csynth_design
-cosim_design
+cosim_design -O -rtl vhdl
 export_design -format ip_catalog

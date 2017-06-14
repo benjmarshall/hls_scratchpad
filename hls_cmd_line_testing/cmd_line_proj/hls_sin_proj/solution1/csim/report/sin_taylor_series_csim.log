@@ -1,0 +1,26 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../../source_files/tb/testbench.cpp in debug mode
+   Compiling ../../../../../source_files/src/dut.cpp in debug mode
+   Generating csim.exe
+Sin(0) - Expected result: 0.000000, Got Result: 0.000000
+Sin(5) - Expected result: 0.087153, Got Result: 0.087153
+Sin(10) - Expected result: 0.173643, Got Result: 0.173643
+Sin(15) - Expected result: 0.258812, Got Result: 0.258812
+Sin(20) - Expected result: 0.342010, Got Result: 0.342010
+Sin(25) - Expected result: 0.422607, Got Result: 0.422607
+Sin(30) - Expected result: 0.499987, Got Result: 0.499987
+Sin(35) - Expected result: 0.573562, Got Result: 0.573562
+Sin(40) - Expected result: 0.642772, Got Result: 0.642772
+Sin(45) - Expected result: 0.707090, Got Result: 0.707090
+Sin(50) - Expected result: 0.766028, Got Result: 0.766028
+Sin(55) - Expected result: 0.819136, Got Result: 0.819136
+Sin(60) - Expected result: 0.866010, Got Result: 0.866010
+Sin(65) - Expected result: 0.906294, Got Result: 0.906294
+Sin(70) - Expected result: 0.939680, Got Result: 0.939680
+Sin(75) - Expected result: 0.965916, Got Result: 0.965916
+Sin(80) - Expected result: 0.984801, Got Result: 0.984801
+Sin(85) - Expected result: 0.996191, Got Result: 0.996191
+Sin(90) - Expected result: 1.000000, Got Result: 1.000000
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

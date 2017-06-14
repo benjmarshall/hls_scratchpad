@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed Jun 14 15:31:00 2017
+# Process ID: 22621
+# Current directory: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl
+# Command line: wbtcv -mode batch -source /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/xsim.dir/sin_taylor_series/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/webtalk.log
+# Journal file: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/webtalk.jou
+#-----------------------------------------------------------
+source /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/xsim.dir/sin_taylor_series/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/xsim.dir/sin_taylor_series/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Wed Jun 14 15:31:01 2017. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2017.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Wed Jun 14 15:31:01 2017...

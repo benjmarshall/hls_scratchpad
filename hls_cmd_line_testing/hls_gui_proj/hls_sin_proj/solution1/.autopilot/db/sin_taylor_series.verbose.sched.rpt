@@ -1,0 +1,159 @@
+
+
+================================================================
+== Vivado HLS Report for 'sin_taylor_series'
+================================================================
+* Date:           Wed Jun 14 15:32:25 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        hls_sin_proj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.62|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+------+-----+------+----------+
+    |   Latency  |  Interval  | Pipeline |
+    | min |  max | min |  max |   Type   |
+    +-----+------+-----+------+----------+
+    |  201|  1156|  197|  1152| dataflow |
+    +-----+------+-----+------+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 3, States = { 1 2 3 }
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: x_read (6)  [1/1] 0.00ns
+codeRepl:4  %x_read = call double @_ssdm_op_Read.ap_auto.double(double %x) nounwind
+
+ST_1: call_ret (7)  [2/2] 0.00ns
+codeRepl:5  %call_ret = call fastcc { double, double } @Loop_sum_loop_proc(double %x_read) nounwind
+
+
+ <State 2>: 0.00ns
+ST_2: call_ret (7)  [1/2] 0.00ns
+codeRepl:5  %call_ret = call fastcc { double, double } @Loop_sum_loop_proc(double %x_read) nounwind
+
+ST_2: sum_positive_0_loc_l (8)  [1/1] 0.00ns
+codeRepl:6  %sum_positive_0_loc_l = extractvalue { double, double } %call_ret, 0
+
+ST_2: sum_negative_0_loc_l (9)  [1/1] 0.00ns
+codeRepl:7  %sum_negative_0_loc_l = extractvalue { double, double } %call_ret, 1
+
+ST_2: tmp_loc_channel (10)  [2/2] 0.00ns
+codeRepl:8  %tmp_loc_channel = call fastcc double @Block_sin_taylor_ser(double %sum_positive_0_loc_l, double %sum_negative_0_loc_l) nounwind
+
+
+ <State 3>: 8.23ns
+ST_3: StgValue_10 (2)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:25
+codeRepl:0  call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str) nounwind
+
+ST_3: StgValue_11 (3)  [1/1] 0.00ns
+codeRepl:1  call void (...)* @_ssdm_op_SpecBitsMap(double %x) nounwind, !map !15
+
+ST_3: StgValue_12 (4)  [1/1] 0.00ns
+codeRepl:2  call void (...)* @_ssdm_op_SpecBitsMap(double 0.000000e+00) nounwind, !map !21
+
+ST_3: StgValue_13 (5)  [1/1] 0.00ns
+codeRepl:3  call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @sin_taylor_series_st) nounwind
+
+ST_3: tmp_loc_channel (10)  [1/2] 8.23ns
+codeRepl:8  %tmp_loc_channel = call fastcc double @Block_sin_taylor_ser(double %sum_positive_0_loc_l, double %sum_negative_0_loc_l) nounwind
+
+ST_3: tmp (11)  [1/1] 0.00ns
+codeRepl:9  %tmp = call fastcc double @"__../source_files/sr"(double %tmp_loc_channel) nounwind
+
+ST_3: StgValue_16 (12)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:36
+codeRepl:10  ret double %tmp
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 8.23ns
+The critical path consists of the following:
+	'call' operation ('tmp_loc_channel') to 'Block_sin_taylor_ser' [10]  (8.23 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

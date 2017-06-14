@@ -1,0 +1,81 @@
+#-----------------------------------------------------------
+# xsim v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed Jun 14 15:30:41 2017
+# Process ID: 22582
+# Current directory: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl
+# Command line: xsim -mode tcl -source {xsim.dir/sin_taylor_series/xsim_script.tcl}
+# Log file: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/xsim.log
+# Journal file: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/sin_taylor_series/xsim_script.tcl
+# xsim {sin_taylor_series} -autoloadwcfg -tclbatch {sin_taylor_series.tcl}
+Vivado Simulator 2017.1
+Time resolution is 1 ps
+source sin_taylor_series.tcl
+## run all
+Note: 
+******************************************************
+  renorm_and_round_logic.vhd :
+    FULL_MANT_RND1_DEL is using fast_input
+    which will be faster, but create more FFs.
+******************************************************
+Time: 0 ps  Iteration: 0
+Note: 
+******************************************************
+  renorm_and_round_logic.vhd :
+    FULL_MANT_RND1_DEL is using fast_input
+    which will be faster, but create more FFs.
+******************************************************
+Time: 0 ps  Iteration: 0
+Note: 
+******************************************************
+  renorm_and_round_logic.vhd :
+    FULL_MANT_RND1_DEL is using fast_input
+    which will be faster, but create more FFs.
+******************************************************
+Time: 0 ps  Iteration: 0
+Note: 
+******************************************************
+  renorm_and_round_logic.vhd :
+    FULL_MANT_RND1_DEL is using fast_input
+    which will be faster, but create more FFs.
+******************************************************
+Time: 0 ps  Iteration: 0
+Note: 
+******************************************************
+  renorm_and_round_logic.vhd :
+    FULL_MANT_RND1_DEL is using fast_input
+    which will be faster, but create more FFs.
+******************************************************
+Time: 0 ps  Iteration: 0
+Note: 
+******************************************************
+  renorm_and_round_logic.vhd :
+    FULL_MANT_RND1_DEL is using fast_input
+    which will be faster, but create more FFs.
+******************************************************
+Time: 0 ps  Iteration: 0
+Warning: OPMODE Input Warning : The OPMODE 001XXXX with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 100010 ps  Iteration: 0  Process: /apatb_sin_taylor_series_top/AESL_inst_sin_taylor_series/Loop_sum_loop_proc_U0/sin_taylor_seriesdEe_U8/sin_taylor_series_ap_dadd_3_full_dsp_64_u/U0/i_synth/addsub_op/ADDSUB/speed_op/logic/OP/ALIGN_BLK/FRAC_ADDSUB/dsp_add/FRAC_ADDSUB/dsp48e1_add/DSP48E1_ADD/DSP/prcs_opmode_drc  File: /wrk/2017.1/nightly/2017_04_14_1846317/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+Warning: OPMODE Input Warning : The OPMODE 001XXXX with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 100010 ps  Iteration: 0  Process: /apatb_sin_taylor_series_top/AESL_inst_sin_taylor_series/Loop_sum_loop_proc_U0/sin_taylor_seriesdEe_U7/sin_taylor_series_ap_dadd_3_full_dsp_64_u/U0/i_synth/addsub_op/ADDSUB/speed_op/logic/OP/ALIGN_BLK/FRAC_ADDSUB/dsp_add/FRAC_ADDSUB/dsp48e1_add/DSP48E1_ADD/DSP/prcs_opmode_drc  File: /wrk/2017.1/nightly/2017_04_14_1846317/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+Warning: OPMODE Input Warning : The OPMODE 011XX11 with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 100010 ps  Iteration: 0  Process: /apatb_sin_taylor_series_top/AESL_inst_sin_taylor_series/Loop_sum_loop_proc_U0/grp_power_fu_88/sin_taylor_seriesbkb_U1/sin_taylor_series_ap_dmul_4_max_dsp_64_u/U0/i_synth/mult/OP/R_AND_R/logic/R_AND_R/dsp48_e1/dsp48e1_add/DSP48E1_ADD/DSP/prcs_opmode_drc  File: /wrk/2017.1/nightly/2017_04_14_1846317/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+Warning: OPMODE Input Warning : The OPMODE 011XX11 with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 100010 ps  Iteration: 0  Process: /apatb_sin_taylor_series_top/AESL_inst_sin_taylor_series/Loop_sum_loop_proc_U0/grp_power_fu_81/sin_taylor_seriesbkb_U1/sin_taylor_series_ap_dmul_4_max_dsp_64_u/U0/i_synth/mult/OP/R_AND_R/logic/R_AND_R/dsp48_e1/dsp48e1_add/DSP48E1_ADD/DSP/prcs_opmode_drc  File: /wrk/2017.1/nightly/2017_04_14_1846317/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+Warning: OPMODE Input Warning : The OPMODE 011XX11 with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 100010 ps  Iteration: 0  Process: /apatb_sin_taylor_series_top/AESL_inst_sin_taylor_series/Loop_sum_loop_proc_U0/grp_fact_fu_76/sin_taylor_seriesbkb_x_U4/sin_taylor_series_ap_dmul_4_max_dsp_64_u/U0/i_synth/mult/OP/R_AND_R/logic/R_AND_R/dsp48_e1/dsp48e1_add/DSP48E1_ADD/DSP/prcs_opmode_drc  File: /wrk/2017.1/nightly/2017_04_14_1846317/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+Warning: OPMODE Input Warning : The OPMODE 011XX11 with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 100010 ps  Iteration: 0  Process: /apatb_sin_taylor_series_top/AESL_inst_sin_taylor_series/Loop_sum_loop_proc_U0/grp_fact_fu_70/sin_taylor_seriesbkb_x_U4/sin_taylor_series_ap_dmul_4_max_dsp_64_u/U0/i_synth/mult/OP/R_AND_R/logic/R_AND_R/dsp48_e1/dsp48e1_add/DSP48E1_ADD/DSP/prcs_opmode_drc  File: /wrk/2017.1/nightly/2017_04_14_1846317/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+Warning: OPMODE Input Warning : The OPMODE 001XXXX with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 5665 ns  Iteration: 16  Process: /apatb_sin_taylor_series_top/AESL_inst_sin_taylor_series/Block_sin_taylor_ser_U0/sin_taylor_seriesfYi_U12/sin_taylor_series_ap_dsub_3_full_dsp_64_u/U0/i_synth/addsub_op/ADDSUB/speed_op/logic/OP/ALIGN_BLK/FRAC_ADDSUB/dsp_add/FRAC_ADDSUB/dsp48e1_add/DSP48E1_ADD/DSP/prcs_opmode_drc  File: /wrk/2017.1/nightly/2017_04_14_1846317/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+Note: simulation done!
+Time: 105115 ns  Iteration: 1  Process: /apatb_sin_taylor_series_top/generate_sim_done_proc  File: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/sin_taylor_series.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 105115 ns  Iteration: 1  Process: /apatb_sin_taylor_series_top/generate_sim_done_proc  File: /mnt/centos_share/Vivado_Projects/hls_scratchpad/hls_cmd_line_testing/cmd_line_proj/hls_sin_proj/solution1/sim/vhdl/sin_taylor_series.autotb.vhd
+$finish called at time : 105115 ns
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 1103.668 ; gain = 0.000 ; free physical = 4759 ; free virtual = 14256
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Jun 14 15:31:01 2017...

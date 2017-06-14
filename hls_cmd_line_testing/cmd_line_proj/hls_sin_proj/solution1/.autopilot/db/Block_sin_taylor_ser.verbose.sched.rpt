@@ -1,0 +1,164 @@
+
+
+================================================================
+== Vivado HLS Report for 'Block_sin_taylor_ser'
+================================================================
+* Date:           Wed Jun 14 15:29:01 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        hls_sin_proj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.23|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    4|    4|    4|    4|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 5
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+* FSM state operations: 
+
+ <State 1>: 8.23ns
+ST_1: p_read_2 (3)  [1/1] 0.00ns
+entry:0  %p_read_2 = call double @_ssdm_op_Read.ap_auto.double(double %p_read1)
+
+ST_1: p_read_3 (4)  [1/1] 0.00ns
+entry:1  %p_read_3 = call double @_ssdm_op_Read.ap_auto.double(double %p_read)
+
+ST_1: tmp_loc (5)  [5/5] 8.23ns  loc: ../source_files/src/dut.cpp:36
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+
+ <State 2>: 8.23ns
+ST_2: tmp_loc (5)  [4/5] 8.23ns  loc: ../source_files/src/dut.cpp:36
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+
+ <State 3>: 8.23ns
+ST_3: tmp_loc (5)  [3/5] 8.23ns  loc: ../source_files/src/dut.cpp:36
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+
+ <State 4>: 8.23ns
+ST_4: tmp_loc (5)  [2/5] 8.23ns  loc: ../source_files/src/dut.cpp:36
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+
+ <State 5>: 8.23ns
+ST_5: tmp_loc (5)  [1/5] 8.23ns  loc: ../source_files/src/dut.cpp:36
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+ST_5: StgValue_13 (6)  [1/1] 0.00ns  loc: ../source_files/src/dut.cpp:36
+entry:3  ret double %tmp_loc
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 8.23ns
+The critical path consists of the following:
+	wire read on port 'p_read1' [3]  (0 ns)
+	'dsub' operation ('tmp_loc', ../source_files/src/dut.cpp:36) [5]  (8.23 ns)
+
+ <State 2>: 8.23ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_loc', ../source_files/src/dut.cpp:36) [5]  (8.23 ns)
+
+ <State 3>: 8.23ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_loc', ../source_files/src/dut.cpp:36) [5]  (8.23 ns)
+
+ <State 4>: 8.23ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_loc', ../source_files/src/dut.cpp:36) [5]  (8.23 ns)
+
+ <State 5>: 8.23ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_loc', ../source_files/src/dut.cpp:36) [5]  (8.23 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,216 @@
+<stg><name>Block_sin_taylor_ser</name>
+
+
+<trans_list>
+
+<trans id="14" from="1" to="2">
+<condition id="5">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="15" from="2" to="3">
+<condition id="6">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="16" from="3" to="4">
+<condition id="7">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="17" from="4" to="5">
+<condition id="8">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="3" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:0  %p_read_2 = call double @_ssdm_op_Read.ap_auto.double(double %p_read1)
+
+]]></Node>
+<StgValue><ssdm name="p_read_2"/></StgValue>
+</operation>
+
+<operation id="7" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:1  %p_read_3 = call double @_ssdm_op_Read.ap_auto.double(double %p_read)
+
+]]></Node>
+<StgValue><ssdm name="p_read_3"/></StgValue>
+</operation>
+
+<operation id="8" st_id="1" stage="5" lat="5">
+<core>DAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+]]></Node>
+<StgValue><ssdm name="tmp_loc"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="9" st_id="2" stage="4" lat="5">
+<core>DAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+]]></Node>
+<StgValue><ssdm name="tmp_loc"/></StgValue>
+</operation>
+</state>
+
+<state id="3" st_id="3">
+
+<operation id="10" st_id="3" stage="3" lat="5">
+<core>DAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="2">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+]]></Node>
+<StgValue><ssdm name="tmp_loc"/></StgValue>
+</operation>
+</state>
+
+<state id="4" st_id="4">
+
+<operation id="11" st_id="4" stage="2" lat="5">
+<core>DAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+]]></Node>
+<StgValue><ssdm name="tmp_loc"/></StgValue>
+</operation>
+</state>
+
+<state id="5" st_id="5">
+
+<operation id="12" st_id="5" stage="1" lat="5">
+<core>DAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:2  %tmp_loc = fsub double %p_read_3, %p_read_2
+
+]]></Node>
+<StgValue><ssdm name="tmp_loc"/></StgValue>
+</operation>
+
+<operation id="13" st_id="5" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="0" op_0_bw="64">
+<![CDATA[
+entry:3  ret double %tmp_loc
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="18" name="p_read" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_read"/></StgValue>
+</port>
+<port id="19" name="p_read1" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_read1"/></StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="21" from="_ssdm_op_Read.ap_auto.double" to="p_read_2" fromId="20" toId="6">
+</dataflow>
+<dataflow id="22" from="p_read1" to="p_read_2" fromId="19" toId="6">
+</dataflow>
+<dataflow id="23" from="_ssdm_op_Read.ap_auto.double" to="p_read_3" fromId="20" toId="7">
+</dataflow>
+<dataflow id="24" from="p_read" to="p_read_3" fromId="18" toId="7">
+</dataflow>
+<dataflow id="25" from="p_read_3" to="tmp_loc" fromId="7" toId="8">
+</dataflow>
+<dataflow id="26" from="p_read_2" to="tmp_loc" fromId="6" toId="8">
+</dataflow>
+<dataflow id="27" from="p_read_3" to="tmp_loc" fromId="7" toId="9">
+</dataflow>
+<dataflow id="28" from="p_read_2" to="tmp_loc" fromId="6" toId="9">
+</dataflow>
+<dataflow id="29" from="p_read_3" to="tmp_loc" fromId="7" toId="10">
+</dataflow>
+<dataflow id="30" from="p_read_2" to="tmp_loc" fromId="6" toId="10">
+</dataflow>
+<dataflow id="31" from="p_read_3" to="tmp_loc" fromId="7" toId="11">
+</dataflow>
+<dataflow id="32" from="p_read_2" to="tmp_loc" fromId="6" toId="11">
+</dataflow>
+<dataflow id="33" from="p_read_3" to="tmp_loc" fromId="7" toId="12">
+</dataflow>
+<dataflow id="34" from="p_read_2" to="tmp_loc" fromId="6" toId="12">
+</dataflow>
+<dataflow id="35" from="tmp_loc" to="StgValue_13" fromId="12" toId="13">
+</dataflow>
+</dataflows>
+
+
+</stg>

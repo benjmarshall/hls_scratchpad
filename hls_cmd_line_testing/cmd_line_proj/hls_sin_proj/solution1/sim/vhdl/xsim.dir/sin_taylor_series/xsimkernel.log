@@ -1,0 +1,7 @@
+Running: xsim.dir/sin_taylor_series/xsimk -simmode gui -wdb sin_taylor_series.wdb -simrunnum 0 -socket 52534
+Design successfully loaded
+Design Loading Memory Usage: 61440 KB (Peak: 61952 KB)
+Design Loading CPU Usage: 80 ms
+Simulation completed
+Simulation Memory Usage: 142344 KB (Peak: 200712 KB)
+Simulation CPU Usage: 9550 ms
